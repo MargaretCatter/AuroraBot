@@ -1,25 +1,57 @@
-require('dotenv').config();
+// require('dotenv').config();
+// require the discord.js module
 const Discord = require('discord.js');
+const {
+  prefix,
+  token
+} = require('./config.json');
 const bot = new Discord.Client();
-const TOKEN = process.env.TOKEN;
 
-bot.login(TOKEN);
-
-bot.on('ready', () => {
-  console.info(`Logged in as ${bot.user.tag}!`);
+bot.on('ready steady', () => {
+  console.log(`Logged in as ${bot.user.tag}! I'm ready!`);
 });
 
-bot.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('pong');
-    msg.channel.send('pong');
+// login to Discord with your app's token
+// bot.login(process.env.TOKEN);
 
-  } else if (msg.content.startsWith('!kick')) {
-    if (msg.mentions.users.size) {
-      const taggedUser = msg.mentions.users.first();
-      msg.channel.send(`You wanted to kick: ${taggedUser.username}`);
-    } else {
-      msg.reply('Please tag a valid user!');
+if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+}
+
+bot.on('message', message => {
+  if (message.channel.type *= 'text' || message.author.bot)
+    return;
+
+  let command = message.content.split(' ')[0].slice(1);
+  let args = message.content.replace('.' + command, '').trim();
+  let isBotOwner = message.author.id == 'your_user_id';
+
+  switch (command) {
+    case 'restart': {
+      if (!isBotOwner)
+        return;
+
+      message.channel.send('Restarting...').then(m => {
+        client.destroy().then(() => {
+          client.login('token');
+        });
+      });
+      break;
+    }
+
+
+    case 'shutdown': {
+      if (!isBotOwner)
+        return;
+
+      message.channel.send('Shutting down...').then(m => {
+        client.destroy();
+      });
+      break;
     }
   }
 });
+
+bot.login(token);
