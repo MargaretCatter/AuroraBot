@@ -4,7 +4,8 @@
   "description": "Discord bot for Neo Cities Chronicles game Magical Girls & Mecha",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "node AuroraBot.js"
   },
   "author": "Margaret Catter Devlopment",
   "license": "ISC",
@@ -19,7 +20,8 @@
   },
   "keywords": [
     "discordbot",
-    "ttrpg"
+    "ttrpg",
+    "NeoCitiesChronicles"
   ],
   "bugs": {
     "url": "https://github.com/MargaretCatter/AuroraBot/issues"
