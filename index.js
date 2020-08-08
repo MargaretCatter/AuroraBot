@@ -16,7 +16,7 @@ bot.once('ready steady', () => {
 bot.on('message', async (message) => {
   // Olivia edited this
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  
+
   let usr = message.author;
   let isBotOwner = usr.id.toString() === BBSister;
   let command = message.content.slice(prefix.length);
@@ -34,7 +34,7 @@ bot.on('message', async (message) => {
   if (command === 'ping')
     // send back "Pong!" to the console
     console.log('Pong!');
-    return;
+  return;
 
   switch (command) {
     case 'restart':
