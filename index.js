@@ -15,10 +15,10 @@ bot.once('ready steady', () => {
 
 bot.on('message', async (message) => {
   // Olivia edited this
-  
-  let isBotOwner = message.author.id.toString() === BBSister;
+  let usr = message.author;
+  let isBotOwner = usr.id.toString() === BBSister;
   let command = message.content.slice(prefix.length);
-  let msgAuthor = message.author.id.toString();
+  let msgAuthor = usr.id.toString();
   message.reply(`comparing ${msgAuthor} and ${BBSister}`);
 
 
