@@ -32,6 +32,7 @@ bot.on('message', async (message) => {
   if (command === 'ping')
     // send back "Pong!" to the console
     console.log('Pong!');
+    return;
 
   switch (command) {
     case 'restart':
@@ -43,7 +44,7 @@ bot.on('message', async (message) => {
       console.log('Restarting. Be Right Back...');
       await bot.destroy();
       await bot.login(token);
-      break;
+      return;
     case 'shutdown':
       if (!isBotOwner) {
         console.log('Not the owner');
@@ -52,10 +53,10 @@ bot.on('message', async (message) => {
 
       console.log('Shutting down...');
       await bot.destroy();
-      break;
+      return;
     default:
       console.log('Sorry, I need more information');
-      break;
+      return;
   } /* */
 });
 
