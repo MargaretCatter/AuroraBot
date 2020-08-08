@@ -18,8 +18,8 @@ bot.on('message', async (message) => {
   
   let isBotOwner = message.author.id.toString() === BBSister;
   let command = message.content.slice(prefix.length);
-  
-  message.reply(`comparing ${message.author.id.toString()} and ${BBSister}`);
+  let msgAuthor = message.author.id.toString();
+  message.reply(`comparing ${msgAuthor} and ${BBSister}`);
 
 
   if (!isBotOwner) return;
