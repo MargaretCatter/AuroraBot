@@ -24,17 +24,18 @@ bot.on('message', async (message) => {
   //message.reply(`comparing ${msgAuthor} and ${BBSister}`);
 
 
-  if (!isBotOwner) return;
+  //if (!isBotOwner) return;
 
   if (command === 'ownershome')
     if (!isBotOwner)
       return;
   //console.log(command);
 
-  if (command === 'ping')
+  if (command === 'ping') {
     // send back "Pong!" to the console
     console.log('Pong!');
     return;
+  }
 
   switch (command) {
     case 'restart':
