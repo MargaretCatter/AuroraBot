@@ -32,7 +32,7 @@ bot.on('message', async (message) => {
   if (command === 'ping')
     // send back "Pong!" to the console
     console.log('Pong!');
-    return;
+  return;
 
   switch (command) {
     case 'restart':
