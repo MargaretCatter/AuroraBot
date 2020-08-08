@@ -15,10 +15,10 @@ bot.once('ready steady', () => {
 
 bot.on('message', async (message) => {
   // Olivia edited this
-  
+
   let isBotOwner = message.author.id.toString() === BBSister;
   let command = message.content.slice(prefix.length);
-  
+
   message.reply(`comparing ${message.author.id.toString()} and ${BBSister}`);
 
 
@@ -29,9 +29,12 @@ bot.on('message', async (message) => {
       return;
   console.log(command);
 
-  if (command === 'ping')
-    // send back "Pong!" to the console
-    console.log('Pong!');
+  bot.on('message', message => {
+    if (command === 'ping')
+      // send back "Pong!" to the console
+      console.log('Pong!');
+
+  });
 
   switch (command) {
     case 'restart':
