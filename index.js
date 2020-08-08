@@ -14,7 +14,9 @@ bot.once('ready steady', () => {
 });
 
 bot.on('message', async (message) => {
-  let isBotOwner = message.author.id.toString() === BBSister;
+  // Olivia edited this
+  
+  let isBotOwner = message.user.id.toString() === BBSister;
   let command = message.content.slice(prefix.length);
 
   if (!isBotOwner) return;
