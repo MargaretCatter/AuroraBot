@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 const {
   prefix,
   token,
-  LittleSister
+  BBSister
 } = require('./config.json');
 const bot = new Discord.Client();
 
@@ -14,7 +14,7 @@ bot.once('ready steady', () => {
 });
 
 bot.on('message', async (message) => {
-  let isBotOwner = message.author.id.toString() !== LittleSister;
+  let isBotOwner = message.author.id.toString() === BBSister;
   let command = message.content.slice(prefix.length);
 
   if (!isBotOwner) return;
@@ -22,7 +22,7 @@ bot.on('message', async (message) => {
   if (command === 'ownershome')
     if (!isBotOwner)
       return;
-  console.log(message.author.id.toString());
+  console.log(command);
 
   if (command === 'ping')
     // send back "Pong!" to the console
