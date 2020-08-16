@@ -1,22 +1,20 @@
 const Discord = require('discord.js');
-const { handleMessage } = require('./AuroraBot.js');
 
 const {
   TOKEN,
   BBSISTER
 } = process.env;
-const bot = new Discord.Client();
+let bot;
 
 function initBot(){
   // login to Discord with your app's token
+  bot = new Discord.Client();
   bot.login(TOKEN);
 
   bot.once('ready steady', () => {
     console.log(`Logged in as ${bot.user.tag}! I'm ready!`);
   });
-
-  bot.on('message', handleMessage);
-  return;
+  return bot;
 }
 
 function restartBot(){
