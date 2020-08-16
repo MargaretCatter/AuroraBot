@@ -15,11 +15,11 @@ async function handleMessage(message) {
 
   switch (command.toLowerCase()) {
     case 'ownershome':
-      repsonse = isOwner(message) ? 'Owner is home' : 'Owner is not home';
+      response = await isOwner(message) ? 'Owner is home' : 'Owner is not home';
       break;
 
     case 'ping':
-      reponse = 'Pong';
+      response = 'Pong';
       break;
 
     case 'restart':
@@ -27,11 +27,13 @@ async function handleMessage(message) {
         response = 'Not the owner';
         break;
       }
+      response = 'Restarting. Be Right Back...';
       restartBot();
       break;
 
     case 'shutdown':
       if(isOwner(message)){
+        response = 'Shutting down';
         shutdownBot();
       } else {
         response = 'Not the owner';
@@ -41,8 +43,7 @@ async function handleMessage(message) {
       response = 'Sorry, I need more information';
       break;
   }
-
-  console.log(response);
+  message.channel.send(response);
   return;
 };
 
