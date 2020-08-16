@@ -4,7 +4,8 @@ const {
   PREFIX,
   BBSISTER
 } = process.env;
-export default async function handleMessage(message) {
+
+async function handleMessage(message) {
   let response = '';
   if (!message.content.startsWith(PREFIX) || message.author.bot) return;
 
@@ -43,4 +44,8 @@ export default async function handleMessage(message) {
 
   console.log(response);
   return;
-}
+};
+
+module.exports = {
+  handleMessage,
+};

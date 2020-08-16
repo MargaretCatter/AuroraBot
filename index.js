@@ -1,4 +1,4 @@
 require('dotenv').config();
-const botAdmin = require('./BotAdmin.js');
+const { initBot } = require('./BotAdmin.js');
 
-botAdmin.initBot();
+initBot();
