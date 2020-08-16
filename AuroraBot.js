@@ -1,4 +1,4 @@
-const { isOwner, restartBot, shutdownBot } = require('BotAdmin');
+const { isOwner, restartBot, shutdownBot } = require('./BotAdmin.js');
 
 const {
   PREFIX,
