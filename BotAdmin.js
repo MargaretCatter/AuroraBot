@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { handleMessage } = require('AuroraBot');
+const { handleMessage } = require('./AuroraBot.js');
 
 const {
   TOKEN,
